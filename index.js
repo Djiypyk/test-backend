@@ -1,14 +1,13 @@
-let https = require('https')
-const dotenv = require('dotenv')
-const path = require('path')
-dotenv.config()
-https.createServer(() => {
-})
+const e = require("express");
+const Application = require('./frameworks/Application')
+const userRouter = require('./src/user-router')
+const jsonParser = require('./frameworks/parseJson')
+const parseUrl = require('./frameworks/parseUrl')
 
-console.log(process.pid);
-console.log(process.env.PORT);
-console.log(process.env.NODE_ENV);
+const PORT = process.env.PORT || 5000;
 
-// ----------------------------
-const siteURL = 'http://localhost:8080/users?id=5252'
-const url = new URL(siteURL)
+const app = new Application()
+app.use(jsonParser)
+app.use(parseUrl('http://localhost:5000'))
+app.addRouter(userRouter)
+app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))

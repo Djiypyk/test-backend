@@ -2,9 +2,9 @@
   "name": "node-js",
   "version": "1.0.0",
   "description": "start in nodejs",
-  "main": "index.js",
+  "main": "lesson/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",

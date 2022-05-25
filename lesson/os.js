@@ -1,4 +1,4 @@
-const os = require('os')
+const os = require('lesson/os')
 const cluster = require('cluster')
 
 // os.platform()
